@@ -8,22 +8,28 @@ Example Usage
 -------------
 
 Specifiy either your api key or a yaml file containing the key:
-	
-	CrowdFlower.connect!( 'CrowdFlower.yml' )
-	
+
+```ruby
+CrowdFlower.connect!('CrowdFlower.yml')
+```
+  
 Upload a CSV file for a job:
 
-	CrowdFlower::Job.upload( File.dirname(__FILE__) + "/data.csv", "text/csv" )
+```ruby
+CrowdFlower::Job.upload( File.dirname(__FILE__) + "/data.csv", "text/csv" )
+```
 
 Copy an existing job into a new one:
-	
-	new_job = job.copy( :all_units => true )
-	
+
+```ruby
+new_job = job.copy(:all_units => true)
+```
+  
 Check the status of a job:
 
-	job.status["tainted_judgments"]
-
-
+```ruby
+job.status["tainted_judgments"]
+```
 
 Contributing
 ------------
