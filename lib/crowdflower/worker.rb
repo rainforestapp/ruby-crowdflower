@@ -40,12 +40,12 @@ module CrowdFlower
       connection.post( "#{resource_uri}/#{worker_id}/notify", :query => params )
     end
     
-    def flag( worker_id, reason = nil )
-      connection.put( "#{resource_uri}/#{worker_id}/flag", :body => { :reason => reason }, :headers => { "Content-Length" => "0" } )
+    def flag( worker_id, reason = nil, persist = false )
+      connection.put( "#{resource_uri}/#{worker_id}/flag", :body => { :persist => persist, :reason => reason }, :headers => { "Content-Length" => "0" } )
     end
     
-    def deflag( worker_id )
-      connection.put( "#{resource_uri}/#{worker_id}/deflag",  :headers => { "Content-Length" => "0" } )
+    def deflag( worker_id, persist = false )
+      connection.put( "#{resource_uri}/#{worker_id}/deflag",  :body => { :persist => persist }, :headers => { "Content-Length" => "0" } )
     end
   end
 end
